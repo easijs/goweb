@@ -89,7 +89,7 @@ var getIPAddress = function () {
   return ip || "127.0.0.1";
 };
 
-var log = debug('anywhere');
+var log = debug('goweb');
 
 var app = connect();
 app.use(function (req, res, next) {
@@ -108,9 +108,9 @@ if (argv.fallback !== undefined) {
 app.use(serveStatic(argv.dir, { 'index': ['index.html'] }));
 app.use(serveIndex(argv.dir, { 'icons': true }));
 
-// anywhere --proxy webpack.config.js
-// anywhere --proxy proxy.config.js
-// anywhere --proxy http://localhost:7000/api
+// goweb --proxy webpack.config.js
+// goweb --proxy proxy.config.js
+// goweb --proxy http://localhost:7000/api
 if (argv.proxy) {
   try {
     // if url
